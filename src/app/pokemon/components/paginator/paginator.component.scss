@@ -1,10 +1,12 @@
 @import '../../../../styles.scss';
 .paginator {
-  display: inline-block;
+  display: flex;
   padding-left: 0;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
 
   .page-item {
     display: inline;

@@ -3,8 +3,9 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
+  OnChanges,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 
 @Component({
@@ -13,18 +14,20 @@ import {
   styleUrl: './paginator.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent implements OnChanges {
   @Input() currentPage: number = 1;
   @Input() limit: number = 20;
-  @Input() total: number = 0;
+  @Input() total: number | null = 2;
 
   @Output() changePage = new EventEmitter<number>();
 
   pages: number[] = [];
 
-  ngOnInit(): void {
-    const pagesCount = Math.ceil(this.total / this.limit);
-    this.pages = this.range(1, pagesCount);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.total) {
+      const pagesCount = Math.ceil(this.total / this.limit);
+      this.pages = this.range(1, pagesCount);
+    }
   }
 
   range(start: number, end: number): number[] {

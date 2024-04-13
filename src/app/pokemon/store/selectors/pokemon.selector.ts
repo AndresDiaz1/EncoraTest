@@ -22,3 +22,8 @@ export const getPokemonListResultsSelector = createSelector(
   pokemonListSelector,
   (state) => state.results
 );
+
+export const getPokemonsCountSelector = createSelector(
+  pokemonListSelector,
+  (state) => state.count
+);

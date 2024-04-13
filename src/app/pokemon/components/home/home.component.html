@@ -3,6 +3,6 @@
     <app-filter (dispatchFilter)="dispatchFilter($event)" (dispatchGetPokemonList)="dispatchGetPokemonList()"></app-filter>
     <p *ngIf="isLoading$|async">Loading...</p>
     <app-table [PokemonsList]="pokemonListResults$ |async"></app-table>
-    <app-paginator [currentPage]="currentPage" [limit]="20" [total]="50" (changePage)="changePage($event)"></app-paginator>
+    <app-paginator [currentPage]="currentPage" [limit]="20" [total]="(pokemonCount$|async)" (changePage)="changePage($event)"></app-paginator>
   </div>
 </div>
