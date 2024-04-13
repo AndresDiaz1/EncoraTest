@@ -1,0 +1,58 @@
+@import '../../../../styles.scss';
+.paginator {
+  display: inline-block;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+
+  .page-item {
+    display: inline;
+  }
+  .page-item:first-child .paginator__page-link {
+    margin-left: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+  }
+  .page-item:last-child .paginator__page-link {
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  .page-item.active .paginator__page-link,
+  .page-item.active .paginator__page-link:focus,
+  .page-item.active .paginator__page-link:hover {
+    z-index: 2;
+    color: $color-white;
+    cursor: default;
+    background-color: $color-red;
+    border-color: $color-red;
+  }
+  .page-item.disabled .paginator__page-link,
+  .page-item.disabled .paginator__page-link:focus,
+  .page-item.disabled .paginator__page-link:hover {
+    color: #818a91;
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: $color-white;
+    border-color: $color-white;
+  }
+  .paginator__page-link {
+    position: relative;
+    float: left;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    color: $color-red;
+    text-decoration: none;
+    background-color: $color-white;
+    border: 1px solid $color-white;
+    cursor: pointer;
+    font-family: 'PressStart';
+  }
+  .paginator__page-link:focus,
+  .paginator__page-link:hover {
+    color: $color-red;
+    background-color: $color-white;
+    border-color: $color-white;
+  }
+
+}

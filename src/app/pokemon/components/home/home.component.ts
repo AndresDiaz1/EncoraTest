@@ -17,7 +17,7 @@ import { PokemonBasicInfo } from '../../models/pokemon-list.model';
 export class HomeComponent implements OnInit {
   isLoading$: Observable<boolean>;
   pokemonListResults$: Observable<PokemonBasicInfo[]>;
-
+  currentPage: number = 1;
   constructor(private store: Store<AppState>) {
     this.isLoading$ = this.store.select(isLoadingSelector);
     this.pokemonListResults$ = this.store.select(getPokemonListResultsSelector);
@@ -25,5 +25,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(PokemonActions.getPokemonList());
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
   }
 }

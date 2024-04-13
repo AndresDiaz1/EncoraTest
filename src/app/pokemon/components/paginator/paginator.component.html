@@ -1,0 +1,5 @@
+<ul class="paginator">
+  <li *ngFor="let page of pages" [ngClass]="{'page-item':true, active:currentPage===page}" (click)="changePage.emit(page)">
+    <span class="paginator__page-link">{{page}}</span>
+  </li>
+</ul>
