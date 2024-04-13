@@ -1,0 +1,24 @@
+@import '../../../../styles.scss';
+
+.filter {
+  margin-bottom: 20px;
+  .filter__form{
+    display: flex;
+    flex-direction: column;
+
+    .filter__form-input, .filter__form-input-hint{
+      font-family: 'PressStart';
+    }
+
+    .filter__form-input {
+      padding: 10px 12px 10px 12px;
+      border-radius: 25px 25px 25px 25px;
+    }
+
+    .filter__form-input-hint{
+      font-size: $small-font;
+      color: $color-red;
+      margin-top: 5px;
+    }
+  }
+}
