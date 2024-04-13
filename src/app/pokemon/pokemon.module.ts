@@ -7,6 +7,7 @@ import { PokemonEffect } from './store/effects/pokemon.effect';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { ExtractIdPipe } from './pipes/extract-id.pipe';
 import { HomeComponent } from './components/home/home.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,6 @@ import { HomeComponent } from './components/home/home.component';
     StoreModule.forFeature('pokemon', reducers),
     EffectsModule.forFeature([PokemonEffect]),
   ],
-  declarations: [HomeComponent, TableRowComponent, ExtractIdPipe],
-  exports: [],
+  declarations: [HomeComponent, TableRowComponent, ExtractIdPipe, TableComponent],
 })
 export class PokemonModule {}
