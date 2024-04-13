@@ -1,5 +1,6 @@
 <div class="table">
+  <app-filter></app-filter>
   <div class="table__element" *ngFor="let pokemon of PokemonsList">
-    <app-table-row [name]="pokemon.name" [id]="pokemon.url | extractId"></app-table-row>
+    <app-table-row [name]="pokemon.name" [url]="pokemon.url"></app-table-row>
   </div>
 </div>

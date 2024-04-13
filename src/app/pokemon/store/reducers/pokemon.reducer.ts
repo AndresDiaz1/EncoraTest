@@ -28,5 +28,14 @@ export const reducers = createReducer(
     ...state,
     isLoading: false,
     error: action.error,
+  })),
+  on(PokemonActions.filterPokemonList, (state, action) => ({
+    ...state,
+    pokemonList: {
+      ...state.pokemonList,
+      results: state.pokemonList.results.filter((pokemon) =>
+        pokemon.name.includes(action.filterText)
+      ),
+    },
   }))
 );

@@ -10,3 +10,8 @@ export const getPokemonListFail = createAction(
   '[List] Get Pokemons List Fail',
   props<{ error: string }>()
 );
+
+export const filterPokemonList = createAction(
+  '[List] Filter List',
+  props<{ filterText: string }>()
+);
