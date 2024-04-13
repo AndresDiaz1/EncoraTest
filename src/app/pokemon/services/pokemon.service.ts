@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { PokemonBasicInfo, PokemonList } from '../models/pokemon-list.model';
+import {
+  PokemonBasicInfo,
+  PokemonList,
+  PokemonRawDetail,
+} from '../models/pokemon-list.model';
 
 @Injectable()
 export class PokemonService {
@@ -33,5 +37,11 @@ export class PokemonService {
           pokemonResults.filter((pokemon) => pokemon.name.includes(filter))
         )
       );
+  }
+
+  getPokemonDetail(id: number): Observable<PokemonRawDetail> {
+    return this.http.get<PokemonRawDetail>(
+      `https://pokeapi.co/api/v2/pokemon/${id}/`
+    );
   }
 }

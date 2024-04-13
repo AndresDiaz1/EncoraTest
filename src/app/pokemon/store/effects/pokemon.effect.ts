@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as PokemonActions from '../actions/pokemon.actions';
-import { catchError, map, mergeMap, of } from 'rxjs';
+import { catchError, map, mergeMap, of, tap } from 'rxjs';
 
 @Injectable()
 export class PokemonEffect {
@@ -37,6 +37,23 @@ export class PokemonEffect {
               PokemonActions.filterPokemonListSuccess({ pokemonList }),
             catchError((err) =>
               of(PokemonActions.filterPokemonListFail({ error: err.message }))
+            )
+          )
+        );
+      })
+    )
+  );
+
+  getPokemonDetail$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PokemonActions.getPokemonDetail),
+      mergeMap(({ id }) => {
+        return this.pokemonService.getPokemonDetail(id).pipe(
+          map(
+            (pokemonDetail) =>
+              PokemonActions.getPokemonDetailSuccess(pokemonDetail),
+            catchError((err) =>
+              of(PokemonActions.getPokemonDetailFail({ error: err.message }))
             )
           )
         );

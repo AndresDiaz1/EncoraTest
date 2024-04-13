@@ -11,6 +11,7 @@ export const initialState: PokemonState = {
     results: [],
   },
   error: null,
+  currentPokemonDetail: null,
 };
 
 export const reducers = createReducer(
@@ -42,6 +43,26 @@ export const reducers = createReducer(
     },
   })),
   on(PokemonActions.filterPokemonListFail, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: action.error,
+  })),
+  on(PokemonActions.getPokemonDetail, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(PokemonActions.getPokemonDetailSuccess, (state, action) => ({
+    ...state,
+    isLoading: false,
+    currentPokemonDetail: {
+      name: action.name,
+      weight: action.weight,
+      height: action.height,
+      types: action.types,
+      image: action.sprites.front_default,
+    },
+  })),
+  on(PokemonActions.getPokemonDetailFail, (state, action) => ({
     ...state,
     isLoading: false,
     error: action.error,

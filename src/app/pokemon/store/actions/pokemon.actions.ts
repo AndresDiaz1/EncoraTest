@@ -1,6 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { PokemonBasicInfo, PokemonList } from '../../models/pokemon-list.model';
-import { Observable } from 'rxjs';
+import {
+  PokemonBasicInfo,
+  PokemonList,
+  PokemonRawDetail,
+} from '../../models/pokemon-list.model';
 
 export const getPokemonList = createAction('[List] Get Pokemons List');
 export const getPokemonListSuccess = createAction(
@@ -24,5 +27,19 @@ export const filterPokemonListSuccess = createAction(
 
 export const filterPokemonListFail = createAction(
   '[List] Filter List Fail',
+  props<{ error: string }>()
+);
+
+export const getPokemonDetail = createAction(
+  '[Detail] Get Pokemon Detail',
+  props<{ id: number }>()
+);
+
+export const getPokemonDetailSuccess = createAction(
+  '[List] Get Pokemons List Success',
+  props<PokemonRawDetail>()
+);
+export const getPokemonDetailFail = createAction(
+  '[List] Get Pokemons List Fail',
   props<{ error: string }>()
 );

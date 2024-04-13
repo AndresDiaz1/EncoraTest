@@ -1,4 +1,11 @@
+@import '../../../../styles.scss';
+
 .table{
+  padding: 10px 12px 10px 12px;
+  border-radius: 15px;
+  border: solid 5px $color-red;
+  outline: solid 12px $color-yellow;
+
   .table__container{
     height: 60vh;
     overflow-y: auto;
