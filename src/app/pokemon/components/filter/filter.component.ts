@@ -21,12 +21,15 @@ export class FilterComponent {
       .get('filter')
       ?.valueChanges.pipe(
         debounceTime(500),
-        distinctUntilChanged()
-        //filter((value) => value.length >= 3)
+        distinctUntilChanged(),
+        filter((value) => value.length >= 3 || value.length === 0)
       )
       .subscribe((filterText) => {
-        console.log('el filtro', filterText);
-        this.store.dispatch(PokemonActions.filterPokemonList({ filterText }));
+        filterText.length >= 3
+          ? this.store.dispatch(
+              PokemonActions.filterPokemonList({ filterText })
+            )
+          : this.store.dispatch(PokemonActions.getPokemonList());
       });
   }
 }

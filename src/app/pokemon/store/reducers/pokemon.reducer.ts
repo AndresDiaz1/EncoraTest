@@ -29,13 +29,21 @@ export const reducers = createReducer(
     isLoading: false,
     error: action.error,
   })),
-  on(PokemonActions.filterPokemonList, (state, action) => ({
+  on(PokemonActions.filterPokemonList, (state) => ({
     ...state,
+    isLoading: true,
+  })),
+  on(PokemonActions.filterPokemonListSuccess, (state, action) => ({
+    ...state,
+    isLoading: false,
     pokemonList: {
       ...state.pokemonList,
-      results: state.pokemonList.results.filter((pokemon) =>
-        pokemon.name.includes(action.filterText)
-      ),
+      results: action.pokemonList,
     },
+  })),
+  on(PokemonActions.filterPokemonListFail, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: action.error,
   }))
 );

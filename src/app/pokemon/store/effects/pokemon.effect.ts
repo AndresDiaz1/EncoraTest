@@ -26,4 +26,21 @@ export class PokemonEffect {
       })
     )
   );
+
+  filterPokemonList$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PokemonActions.filterPokemonList),
+      mergeMap(({ filterText }) => {
+        return this.pokemonService.filterPokemon(filterText).pipe(
+          map(
+            (pokemonList) =>
+              PokemonActions.filterPokemonListSuccess({ pokemonList }),
+            catchError((err) =>
+              of(PokemonActions.filterPokemonListFail({ error: err.message }))
+            )
+          )
+        );
+      })
+    )
+  );
 }
