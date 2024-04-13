@@ -1,0 +1,23 @@
+@import "../../../../styles.scss";
+
+.table-row{
+  display: flex;
+  align-items: center;
+  background-color: $color-row;
+  border-radius: 25px 5px 5px 25px;
+  margin-top: 5px;
+  justify-content: space-between;
+  padding: 10px 12px 10px 12px;
+  &:hover {
+    background-color: $color-row-hover;
+    cursor: pointer;
+    .table-row__id, .table-row__name {
+      color: $color-row-font-hover;
+    }
+  }
+
+  .table-row__id, .table-row__name {
+    font-family: 'PressStart';
+    color: $color-row-font;
+  }
+}

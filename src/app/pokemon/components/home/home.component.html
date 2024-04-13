@@ -1,0 +1,6 @@
+<div class="home">
+  <p *ngIf="isLoading$|async">Loading...</p>
+  <div *ngFor="let pokemon of (pokemonListResults$ |async)">
+    <app-table-row [name]="pokemon.name" [id]="pokemon.url | extractId"></app-table-row>
+  </div>
+</div>

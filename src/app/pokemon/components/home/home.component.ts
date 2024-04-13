@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { InitialState } from '@ngrx/store/src/models';
 import { Store } from '@ngrx/store';
-import * as PokemonActions from '../../pokemon/store/actions/pokemon.actions';
-import { PokemonState } from '../../pokemon/store/initial-state.model';
-import { isLoadingSelector } from '../../pokemon/store/selectors/pokemon.selector';
+import * as PokemonActions from '../../store/actions/pokemon.actions';
+import { PokemonState } from '../../store/initial-state.model';
+import {
+  getPokemonListResultsSelector,
+  isLoadingSelector,
+} from '../../store/selectors/pokemon.selector';
 import { Observable } from 'rxjs';
-import { AppState } from '../../models/appState.model';
+import { AppState } from '../../../models/appState.model';
+import { PokemonBasicInfo } from '../../models/pokemon-list.model';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +18,11 @@ import { AppState } from '../../models/appState.model';
 })
 export class HomeComponent implements OnInit {
   isLoading$: Observable<boolean>;
+  pokemonListResults$: Observable<PokemonBasicInfo[]>;
 
   constructor(private store: Store<AppState>) {
     this.isLoading$ = this.store.select(isLoadingSelector);
+    this.pokemonListResults$ = this.store.select(getPokemonListResultsSelector);
   }
 
   ngOnInit(): void {

@@ -4,6 +4,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers/pokemon.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PokemonEffect } from './store/effects/pokemon.effect';
+import { TableRowComponent } from './components/table-row/table-row.component';
+import { ExtractIdPipe } from './pipes/extract-id.pipe';
 
 @NgModule({
   imports: [
@@ -11,6 +13,7 @@ import { PokemonEffect } from './store/effects/pokemon.effect';
     StoreModule.forFeature('pokemon', reducers),
     EffectsModule.forFeature([PokemonEffect]),
   ],
-  declarations: [],
+  declarations: [TableRowComponent, ExtractIdPipe],
+  exports: [TableRowComponent, ExtractIdPipe],
 })
 export class PokemonModule {}

@@ -17,3 +17,8 @@ export const errorSelector = createSelector(
   selectFeature,
   (state) => state.error
 );
+
+export const getPokemonListResultsSelector = createSelector(
+  pokemonListSelector,
+  (state) => state.results
+);
