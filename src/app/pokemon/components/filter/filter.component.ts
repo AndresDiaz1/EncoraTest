@@ -27,12 +27,16 @@ export class FilterComponent {
       ?.valueChanges.pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        filter((value) => value.length >= 3 || value.length === 0)
+        filter((value) => value?.length >= 3 || value?.length === 0)
       )
       .subscribe((filterText) => {
         filterText.length >= 3
           ? this.dispatchFilter.emit(filterText)
           : this.dispatchGetPokemonList.emit();
       });
+  }
+
+  resetForm() {
+    this.filterForm.reset();
   }
 }
