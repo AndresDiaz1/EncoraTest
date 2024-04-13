@@ -36,10 +36,10 @@ export const getPokemonDetail = createAction(
 );
 
 export const getPokemonDetailSuccess = createAction(
-  '[List] Get Pokemons List Success',
+  '[Detail] Get Pokemons List Success',
   props<PokemonRawDetail>()
 );
 export const getPokemonDetailFail = createAction(
-  '[List] Get Pokemons List Fail',
+  '[Detail] Get Pokemons List Fail',
   props<{ error: string }>()
 );

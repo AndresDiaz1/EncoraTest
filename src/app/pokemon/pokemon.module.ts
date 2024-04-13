@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { PictureComponent } from './components/picture/picture.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { PictureComponent } from './components/picture/picture.component';
     PaginatorComponent,
     DetailComponent,
     PictureComponent,
+    DescriptionComponent,
   ],
 })
 export class PokemonModule {}

@@ -29,5 +29,7 @@ export interface PokemonDetail {
 }
 
 export interface PokemonType {
-  name: string;
+  type: {
+    name: string;
+  };
 }

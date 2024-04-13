@@ -1,0 +1,68 @@
+@import '../../../../styles.scss';
+:host {
+  flex: 2;
+
+  .description{
+    background-color: $color-white;
+    margin: 10px 20px 10px 20px;
+    font-family: 'PressStart';
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+
+    .description__name{
+      color: $color-red;
+      padding: 10px 12px 10px 12px;
+      text-align: center;
+    }
+
+    .description__info{
+      display: flex;
+      margin-top: 10px;
+      flex: 1;
+      .description__info-body, .description__info-types {
+        flex: 1;
+        padding: 10px 12px 10px 12px;
+      }
+
+      .description__info-body{
+        display: flex;
+        flex-direction: column;
+
+        .description__info-body-weight, .description__info-body-height{
+          display: flex;
+          justify-content: space-between;
+          flex: 1;
+          label {
+            color: $color-orange;
+          }
+          span{
+            color: $color-brown;
+          }
+        }
+
+      }
+
+      .description__info-types{
+        display: flex;
+        justify-content: space-around;
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+
+          li{
+            flex:1;
+          }
+        }
+        label {
+          color: $color-orange;
+        }
+        span{
+          color: $color-brown;
+        }
+      }
+    }
+  }
+
+}

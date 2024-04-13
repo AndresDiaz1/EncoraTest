@@ -44,3 +44,9 @@ h5 {
 ul {
   margin: 0;
 }
+
+.app-border-style{
+  border-radius: 15px;
+  border: solid 5px $color-red;
+  outline: solid 12px $color-yellow;
+}

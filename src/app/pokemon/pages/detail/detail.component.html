@@ -1,3 +1,12 @@
 <div class="detail">
-  <app-picture [imageSrc]="(pokemonDetail$|async)?.image"></app-picture>
+  <app-picture
+    [imageSrc]="(pokemonDetail$|async)?.image"
+    [name]="(pokemonDetail$|async)?.name"
+  ></app-picture>
+  <app-description
+    [name]="(pokemonDetail$|async)?.name"
+    [types]="(pokemonDetail$|async)?.types"
+    [weight]="(pokemonDetail$|async)?.weight"
+    [height]="(pokemonDetail$|async)?.height"
+  ></app-description>
 </div>

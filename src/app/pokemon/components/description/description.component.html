@@ -1,0 +1,23 @@
+<div class="description app-border-style">
+  <h2 class="description__name">{{name}}</h2>
+  <div class="description__info">
+    <div class="description__info-body">
+      <div class="description__info-body-weight">
+        <label>Weight:</label>
+        <span>{{weight + 'lbs.'}}</span>
+      </div>
+      <div class="description__info-body-height">
+        <label>Height:</label>
+        <span>{{height +"'"}}</span>
+      </div>
+    </div>
+    <div class="description__info-types">
+      <label>Type</label>
+      <ul>
+        <li *ngFor="let type of types">
+          <span>{{type.type.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
