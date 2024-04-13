@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 :host{
   flex:2;
   display: flex;
@@ -9,6 +11,7 @@
     .picture__img{
       image-rendering: pixelated;
       height: 100%;
+      padding: $app-padding;
     }
   }
 }

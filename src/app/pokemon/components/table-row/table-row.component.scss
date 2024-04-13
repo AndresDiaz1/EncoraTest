@@ -7,7 +7,7 @@
   border-radius: 25px 5px 5px 25px;
   margin-top: 5px;
   justify-content: space-between;
-  padding: 10px 12px 10px 12px;
+  padding:  $app-padding;
   &:hover {
     background-color: $color-orange;
     cursor: pointer;

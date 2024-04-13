@@ -12,21 +12,27 @@
 
     .description__name{
       color: $color-red;
-      padding: 10px 12px 10px 12px;
+      padding:  $app-padding;
       text-align: center;
     }
 
     .description__bio{
-      padding: 10px 12px 10px 12px;
+      padding:  $app-padding;
     }
 
     .description__info{
       display: flex;
       margin-top: 10px;
       flex: 1;
+
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
       .description__info-body, .description__info-types {
         flex: 1;
-        padding: 10px 12px 10px 12px;
+        padding: $app-padding;
       }
 
       .description__info-body{
