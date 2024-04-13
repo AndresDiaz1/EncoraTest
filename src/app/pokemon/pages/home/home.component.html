@@ -1,7 +1,7 @@
 <div class="home">
+  <p class="home__loading" *ngIf="isLoading$|async">Loading...</p>
   <div class="table__content">
     <app-filter (dispatchFilter)="dispatchFilter($event)" (dispatchGetPokemonList)="dispatchGetPokemonList()"></app-filter>
-    <p *ngIf="isLoading$|async">Loading...</p>
     <app-table [PokemonsList]="pokemonListResults$ |async"></app-table>
     <app-paginator [currentPage]="currentPage" [limit]="20" [total]="(pokemonCount$|async)" (changePage)="changePage($event)"></app-paginator>
   </div>

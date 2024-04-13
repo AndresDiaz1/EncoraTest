@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { AppState } from '../../../models/appState.model';
 import { PokemonBasicInfo } from '../../models/pokemon-list.model';
 import { PokemonService } from '../../services/pokemon.service';
-import { FilterComponent } from '../filter/filter.component';
+import { FilterComponent } from '../../components/filter/filter.component';
 
 @Component({
   selector: 'app-home',
