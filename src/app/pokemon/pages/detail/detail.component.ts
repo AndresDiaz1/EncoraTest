@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../models/appState.model';
 import { Observable, Subscription } from 'rxjs';
 import {
+  getCurrentPokemonDescriptionDetail,
   getCurrentPokemonDetail,
   isLoadingSelector,
 } from '../../store/selectors/pokemon.selector';
@@ -20,16 +21,25 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   isLoading$: Observable<boolean>;
   pokemonDetail$: Observable<PokemonDetail | null>;
+  pokemonDescription$: Observable<string>;
 
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {
     this.isLoading$ = this.store.select(isLoadingSelector);
     this.pokemonDetail$ = this.store.select(getCurrentPokemonDetail);
+    this.pokemonDescription$ = this.store.select(
+      getCurrentPokemonDescriptionDetail
+    );
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      if (id) this.store.dispatch(PokemonActions.getPokemonDetail({ id: +id }));
+      if (id) {
+        this.store.dispatch(PokemonActions.getPokemonDetail({ id: +id }));
+        this.store.dispatch(
+          PokemonActions.getPokemonDescriptionDetail({ id: +id })
+        );
+      }
     });
   }
 

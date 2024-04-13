@@ -33,3 +33,11 @@ export interface PokemonType {
     name: string;
   };
 }
+
+export interface PokemonRawDescription {
+  flavor_text_entries: FlavorText[];
+}
+
+export interface FlavorText {
+  flavor_text: string;
+}

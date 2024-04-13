@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import {
   PokemonBasicInfo,
   PokemonList,
+  PokemonRawDescription,
   PokemonRawDetail,
 } from '../models/pokemon-list.model';
 
@@ -42,6 +43,12 @@ export class PokemonService {
   getPokemonDetail(id: number): Observable<PokemonRawDetail> {
     return this.http.get<PokemonRawDetail>(
       `https://pokeapi.co/api/v2/pokemon/${id}/`
+    );
+  }
+
+  getPokemonDescriptionDetail(id: number): Observable<PokemonRawDescription> {
+    return this.http.get<PokemonRawDescription>(
+      `https://pokeapi.co/api/v2/pokemon-species/${id}/`
     );
   }
 }

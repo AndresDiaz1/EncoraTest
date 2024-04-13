@@ -60,4 +60,27 @@ export class PokemonEffect {
       })
     )
   );
+
+  getPokemonDescriptionDetail$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PokemonActions.getPokemonDescriptionDetail),
+      mergeMap(({ id }) => {
+        return this.pokemonService.getPokemonDescriptionDetail(id).pipe(
+          map(
+            (pokemonDescriptionDetail) =>
+              PokemonActions.getPokemonDescriptionDetailSuccess(
+                pokemonDescriptionDetail
+              ),
+            catchError((err) =>
+              of(
+                PokemonActions.getPokemonDescriptionDetailFail({
+                  error: err.message,
+                })
+              )
+            )
+          )
+        );
+      })
+    )
+  );
 }

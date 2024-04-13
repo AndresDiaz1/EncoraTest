@@ -5,4 +5,5 @@ export interface PokemonState {
   pokemonList: PokemonList;
   error: string | null;
   currentPokemonDetail: PokemonDetail | null;
+  currentPokemonDescription: string;
 }

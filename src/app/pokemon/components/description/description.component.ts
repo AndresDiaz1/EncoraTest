@@ -12,4 +12,5 @@ export class DescriptionComponent {
   @Input() weight: number | undefined;
   @Input() height: number | undefined;
   @Input() types: PokemonType[] | undefined = [];
+  @Input() description: string | null = '';
 }

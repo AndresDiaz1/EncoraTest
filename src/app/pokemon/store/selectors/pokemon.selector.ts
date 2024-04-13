@@ -32,3 +32,8 @@ export const getCurrentPokemonDetail = createSelector(
   selectFeature,
   (state) => state.currentPokemonDetail
 );
+
+export const getCurrentPokemonDescriptionDetail = createSelector(
+  selectFeature,
+  (state) => state.currentPokemonDescription
+);
