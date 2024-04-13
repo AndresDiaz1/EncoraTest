@@ -2,14 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { PokemonBasicInfo, PokemonList } from '../models/pokemon-list.model';
-import { filter as filterrxjs } from 'rxjs';
 
 @Injectable()
 export class PokemonService {
+  private _currentPage: number = 1;
+
   constructor(private http: HttpClient) {}
 
+  get currentPage(): number {
+    return this._currentPage;
+  }
+
+  set currentPage(pageNumber: number) {
+    this._currentPage = pageNumber;
+  }
+
   getPokemons(): Observable<PokemonList> {
-    return this.http.get<PokemonList>('https://pokeapi.co/api/v2/pokemon/');
+    const offset = (this.currentPage - 1) * 20;
+    return this.http.get<PokemonList>(
+      `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`
+    );
   }
 
   filterPokemon(filter: string): Observable<PokemonBasicInfo[]> {

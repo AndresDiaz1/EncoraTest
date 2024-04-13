@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { AppState } from '../../../models/appState.model';
 import { PokemonBasicInfo } from '../../models/pokemon-list.model';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,11 @@ export class HomeComponent implements OnInit {
   isLoading$: Observable<boolean>;
   pokemonListResults$: Observable<PokemonBasicInfo[]>;
   pokemonCount$: Observable<number>;
-  currentPage: number = 1;
-  constructor(private store: Store<AppState>) {
+  currentPage: number = this.pokemonService.currentPage;
+  constructor(
+    private store: Store<AppState>,
+    private pokemonService: PokemonService
+  ) {
     this.isLoading$ = this.store.select(isLoadingSelector);
     this.pokemonListResults$ = this.store.select(getPokemonListResultsSelector);
     this.pokemonCount$ = this.store.select(getPokemonsCountSelector);
@@ -30,8 +34,10 @@ export class HomeComponent implements OnInit {
     this.dispatchGetPokemonList();
   }
 
-  changePage(page: number) {
-    this.currentPage = page;
+  changePage(currentPage: number) {
+    this.currentPage = currentPage;
+    this.pokemonService.currentPage = currentPage;
+    this.dispatchGetPokemonList();
   }
 
   dispatchFilter(filterText: string) {

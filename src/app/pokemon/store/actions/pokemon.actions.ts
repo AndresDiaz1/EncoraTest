@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { PokemonBasicInfo, PokemonList } from '../../models/pokemon-list.model';
+import { Observable } from 'rxjs';
 
 export const getPokemonList = createAction('[List] Get Pokemons List');
 export const getPokemonListSuccess = createAction(

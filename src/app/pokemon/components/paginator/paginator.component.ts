@@ -15,7 +15,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaginatorComponent implements OnChanges {
-  @Input() currentPage: number = 1;
+  @Input() currentPage: number | null = 1;
   @Input() limit: number = 20;
   @Input() total: number | null = 2;
 
