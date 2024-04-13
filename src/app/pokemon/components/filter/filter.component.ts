@@ -1,9 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs';
-import { PokemonBasicInfo } from '../../models/pokemon-list.model';
-import * as PokemonActions from '../../store/actions/pokemon.actions';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
@@ -12,11 +14,14 @@ import * as PokemonActions from '../../store/actions/pokemon.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent {
+  @Output() dispatchFilter = new EventEmitter<string>();
+  @Output() dispatchGetPokemonList = new EventEmitter<void>();
+
   filterForm: FormGroup = new FormGroup({
     filter: new FormControl(''),
   });
 
-  constructor(private store: Store<PokemonBasicInfo[]>) {
+  constructor() {
     this.filterForm
       .get('filter')
       ?.valueChanges.pipe(
@@ -26,10 +31,8 @@ export class FilterComponent {
       )
       .subscribe((filterText) => {
         filterText.length >= 3
-          ? this.store.dispatch(
-              PokemonActions.filterPokemonList({ filterText })
-            )
-          : this.store.dispatch(PokemonActions.getPokemonList());
+          ? this.dispatchFilter.emit(filterText)
+          : this.dispatchGetPokemonList.emit();
       });
   }
 }

@@ -24,10 +24,18 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(PokemonActions.getPokemonList());
+    this.dispatchGetPokemonList();
   }
 
   changePage(page: number) {
     this.currentPage = page;
+  }
+
+  dispatchFilter(filterText: string) {
+    this.store.dispatch(PokemonActions.filterPokemonList({ filterText }));
+  }
+
+  dispatchGetPokemonList() {
+    this.store.dispatch(PokemonActions.getPokemonList());
   }
 }
