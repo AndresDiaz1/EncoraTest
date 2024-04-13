@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-$color-row: #FFEE04;
-$color-row-hover: #FF6002;
-$color-row-font: #7F5600;
-$color-row-font-hover: #FFE8B6;
+$color-yellow: #FFEE04;
+$color-orange: #FF6002;
+$color-brown: #7F5600;
+$color-white: #FFE8B6;
+$color-red: #FF1203;
 $color-background: #89E8FF;
 
 @font-face {
@@ -27,4 +28,13 @@ body {
   margin: 0;
   padding: 0;
   background: $color-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
 }

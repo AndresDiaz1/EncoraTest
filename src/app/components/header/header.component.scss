@@ -1,0 +1,20 @@
+@import '../../../styles.scss';
+
+.header{
+  background-color: $color-red;
+  color: $color-white;
+  padding: 10px 12px 10px 12px;
+  box-shadow: 0px 10px 13px -7px black, 31px 8px 2px -10px rgba(0,0,0,0);
+  display: flex;
+  justify-content: space-between;
+
+  .header__pokeball{
+    background-color: $color-white;
+    width: 50px;
+    border-radius: 50px;
+    .header__pokeball-image{
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

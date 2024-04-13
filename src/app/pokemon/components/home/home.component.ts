@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InitialState } from '@ngrx/store/src/models';
 import { Store } from '@ngrx/store';
 import * as PokemonActions from '../../store/actions/pokemon.actions';
-import { PokemonState } from '../../store/initial-state.model';
 import {
   getPokemonListResultsSelector,
   isLoadingSelector,
