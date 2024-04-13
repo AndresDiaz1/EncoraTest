@@ -11,6 +11,7 @@ import { TableComponent } from './components/table/table.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     TableComponent,
     FilterComponent,
     PaginatorComponent,
+    DetailComponent,
   ],
 })
 export class PokemonModule {}
