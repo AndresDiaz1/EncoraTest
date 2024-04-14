@@ -17,7 +17,7 @@ import { PokemonDetail } from '../../models/pokemon-list.model';
   styleUrl: './detail.component.scss',
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  private routeSub: Subscription | null = null;
+  routeSub: Subscription | null = null;
 
   isLoading$: Observable<boolean>;
   pokemonDetail$: Observable<PokemonDetail | null>;

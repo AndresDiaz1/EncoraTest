@@ -1,7 +1,7 @@
 import { ExtractIdPipe } from './extract-id.pipe';
 import { TestBed } from '@angular/core/testing';
 
-describe('ExtractNumberPipe', () => {
+describe('ExtractIdPipe', () => {
   let pipe: ExtractIdPipe;
 
   beforeEach(() => {
