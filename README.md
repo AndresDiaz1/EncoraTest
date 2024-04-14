@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-You can check [live demo here] (https://encora-test.vercel.app/)
+You can check [live demo here](https://encora-test.vercel.app/)
 
 ## Requirements
 
