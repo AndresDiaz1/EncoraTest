@@ -31,7 +31,10 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: $color-background;
+  background-image: url('../src/assets//img//background.jpg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: moveIt 20s linear infinite;
 }
 
 h1,
@@ -51,4 +54,9 @@ ul {
   border-radius: 15px;
   border: solid 5px $color-red;
   outline: solid 12px $color-yellow;
+}
+
+@keyframes moveIt {
+  from {background-position: bottom left;}
+  to {background-position: top right;}
 }
