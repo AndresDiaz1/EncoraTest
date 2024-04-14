@@ -14,6 +14,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { PictureComponent } from './components/picture/picture.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { ShaderPolyComponent } from './components/shader-poly/shader-poly.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { DescriptionComponent } from './components/description/description.compo
     DetailComponent,
     PictureComponent,
     DescriptionComponent,
+    ShaderPolyComponent,
   ],
 })
 export class PokemonModule {}
